@@ -1,0 +1,27 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+h1 {
+    -webkit-text-stroke: 1px rgba(219, 24, 116, 1);
+    text-shadow: black 3px 3px 4px;
+}
+
+.false-carousel {
+    height: 20vh;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(219, 24, 116, 1) 0%, rgba(244, 183, 212, 1) 35%, rgba(248, 249, 250, 1) 100%);
+}
+
+.previous-next {
+    font-size: 300%;
+    text-decoration: none;
+    color: black;
+}
+
+div label {
+    font-size: 80%;
+}
