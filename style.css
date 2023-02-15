@@ -9,6 +9,11 @@
     margin: 5px;
 }
 
+.nav-link {
+    font-size: 110%;
+    color: rgba(219, 24, 116, 1);
+}
+
 h1 {
     -webkit-text-stroke: 1px rgba(219, 24, 116, 1);
     text-shadow: black 3px 3px 4px;
@@ -53,7 +58,7 @@ div label {
 }
 
 footer {
-    height: 6.5vh;
+    height: 6.3vh;
     background-color: #fffcec;
     display: flex;
     justify-content: space-between;
@@ -73,4 +78,60 @@ footer p {
     gap: 15px;
     display: flex;
     justify-content: space-between;
+}
+
+/* Contact */
+
+#contact {
+    height: 60.7vh;
+    margin-top: 5vh;
+}
+
+.contact-form {
+    max-width: 800px;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 120%;
+    font-style: oblique;
+}
+
+/* Stats */
+
+.table-container {
+    margin: 0 auto;
+    margin-top: 5vh;
+    margin-bottom: 7.5vh;
+    width: 60%;
+}
+
+/* Detail */
+
+.detail-container {
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-style: groove;
+
+}
+
+.detail-image {
+    margin: 2vh;
+    border-style: groove;
+}
+
+.detail-description {
+    margin: 2vh;
+    width: 29vw;
+    height: 19vh;
+    border-style: groove;
+    text-align: center;
+}
+
+/* Ghost heading */
+
+h6 {
+    display: none;
 }
