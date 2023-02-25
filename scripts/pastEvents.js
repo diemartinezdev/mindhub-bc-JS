@@ -1,21 +1,23 @@
 const eventsContainer = document.querySelector("#cards");
 
-let amazingCards = createCards(data.events)
+const actualDate = setDate(data.currentDate);
+
+const amazingCards = createCards(data.events);
 
 eventsContainer.innerHTML = amazingCards;
 
-function createCards(array) {
-    
-    let eventsCards = "";
-    
-    // let eventDate = new Date(data.events.Date);
+function setDate(date) {
+  const time = new Date(date);
+  return time;
+}
 
-    // let actualDate = new Date(data.currentDate);
-    
-    // if (eventDate.getTime < actualDate.getTime) {}
-    
-    for (const event of array) {
-        eventsCards += `<div class="card h-100 shadow" style="width: 18rem;">
+function createCards(array) {
+  let eventsCards = "";
+
+  for (const event of array) {
+    const eventDate = setDate(event.date);
+    if (eventDate < actualDate) {
+      eventsCards += `<div class="card h-100 shadow" style="width: 18rem;">
         <img src="${event.image}" class="card-img-top shadow" alt="${event.name}">
         <div class="card-body">
         <h5 class="card-title">${event.name}</h5>
@@ -28,5 +30,6 @@ function createCards(array) {
         </div>
         </div>`;
     }
-        return eventsCards
-    }
+  }
+  return eventsCards;
+}

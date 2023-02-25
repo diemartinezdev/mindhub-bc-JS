@@ -1,6 +1,6 @@
 const eventsContainer = document.querySelector("#cards");
 
-let amazingCards = createCards(data.events)
+const amazingCards = createCards(data.events);
 
 eventsContainer.innerHTML = amazingCards;
 
