@@ -24,3 +24,50 @@ function createCards(array) {
   }
   return eventsCards;
 }
+
+// Prueba search
+
+
+// whateverElement.addEventListener("event type", () => {
+//   const input = document.getElementById("searchbar");
+  
+//   input.addEventListener("input", (e) => {
+
+//     let value = e.target.value;
+
+//     if (value && value.trim().length > 0) {
+//       value = value.trim().toLowerCase()
+
+//       createCards(data.filter(data => {
+//         return data.includes(value)
+//       }))
+//     } else {
+
+//     }
+//   })
+// })
+
+
+// Prueba categorias
+
+// const eventsCategories = document.querySelector("#categories");
+
+// const amazingCategories = showCategories(data.events);
+
+// eventsCategories.innerHTML = amazingCategories;
+
+// function showCategories(array) {
+
+// let eventCategory = "";
+
+// for (const event of array) {
+
+// eventCategory += `<div class="form-check form-check-inline">
+// <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+// <label class="form-check-label" for="inlineCheckbox1">${event.category}</label>
+// </div>`
+// }
+// return eventCategory;
+// }
+
+// let costumePartyCategory = events.filter((event)=> data.event.category == "Costume Party")
