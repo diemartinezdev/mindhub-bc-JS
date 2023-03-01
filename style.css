@@ -103,6 +103,11 @@ footer p {
     margin-bottom: 7.5vh;
     width: 60%;
 }
+/* Section */
+
+section {
+    height: 66vh;
+}
 
 /* Detail */
 
@@ -112,22 +117,25 @@ footer p {
     margin-top: 20vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     border-style: groove;
+    border-radius: 20px;
 
 }
 
 .detail-image {
     margin: 2vh;
     border-style: groove;
+    border-radius: 20px;
 }
 
 .detail-description {
-    margin: 2vh;
+    margin: 0.5vh;
     width: 29vw;
-    height: 19vh;
+    height: 35vh;
     border-style: groove;
     text-align: center;
+    border-radius: 20px;
 }
 
 /* Ghost heading */

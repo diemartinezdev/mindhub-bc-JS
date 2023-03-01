@@ -1,10 +1,13 @@
-const eventsContainer = document.querySelector("#cards");
-
 const actualDate = setDate(data.currentDate);
+
+document.querySelector('#cards').innerHTML = createCards(data.events)
+/* Equivalente a decir:
+const eventsContainer = document.querySelector("#cards");
 
 const amazingCards = createCards(data.events);
 
 eventsContainer.innerHTML = amazingCards;
+*/
 
 function setDate(date) {
   const time = new Date(date);

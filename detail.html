@@ -49,17 +49,18 @@
 
     </header>
     <main>
-        <section style="height:66vh;">
+        <section>
             <h6>nothing</h6>
             <div class="detail-container">
                 <div class="detail-image">
-                    <img src="/assets/Music_Concert.jpg" alt="music concert" class="shadow">
+                    <img src="${event.image}" alt="${event.name}" class="shadow">
                 </div>
                 <div class="detail-description">
-                    <h4><b>Title</b></h4>
-                    <p>Description</p>
-                    <p>Description</p>
-                    <p>Description</p>
+                    <h4><b>${event.name}</b></h4>
+                    <p class="card-text fst-italic fw-bold" style="color: #0dcaf0;">Date: ${event.date}</p>
+                    <p>${event.description}</p>
+                    <p>Location: ${event.place}</p>
+                    <p>Price: $${event.price}</p>
                 </div>
             </div>
         </section>

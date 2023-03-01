@@ -1,8 +1,13 @@
+// Cards
+
+document.querySelector('#cards').innerHTML = createCards(data.events)
+/* Equivalente a decir:
 const eventsContainer = document.querySelector("#cards");
 
 const amazingCards = createCards(data.events);
 
 eventsContainer.innerHTML = amazingCards;
+*/
 
 function createCards(array) {
   let eventsCards = "";
@@ -25,12 +30,16 @@ function createCards(array) {
   return eventsCards;
 }
 
+
 // Prueba search
+// let searchBar = document.getElementById("searchbar")
+
+// searchBar.addEventListener y se cortó la loz
 
 
 // whateverElement.addEventListener("event type", () => {
 //   const input = document.getElementById("searchbar");
-  
+
 //   input.addEventListener("input", (e) => {
 
 //     let value = e.target.value;
@@ -46,7 +55,6 @@ function createCards(array) {
 //     }
 //   })
 // })
-
 
 // Prueba categorias
 
