@@ -1,13 +1,14 @@
 // Cards
 
-document.querySelector('#cards').innerHTML = createCards(data.events)
-/* Equivalente a decir:
+
 const eventsContainer = document.querySelector("#cards");
 
 const amazingCards = createCards(data.events);
 
 eventsContainer.innerHTML = amazingCards;
-*/
+
+// Equivalente a decir:
+// document.querySelector('#cards').innerHTML = createCards(data.events)
 
 function createCards(array) {
   let eventsCards = "";
@@ -23,40 +24,26 @@ function createCards(array) {
                     <div class="card-footer d-flex justify-content-between align-items-center"
                     style="height:52px">
                     <p>Price $${event.price}</p>
-                    <button type="button" class="btn btn-outline-info">Info</button>
+                    <button type="button" onclick="location.href='./detail.html?id=${event.id}" class="btn btn-outline-info">Info</button>
                     </div>
                     </div>`;
   }
   return eventsCards;
 }
 
-
-// Prueba search
-// let searchBar = document.getElementById("searchbar")
-
-// searchBar.addEventListener y se cortó la loz
-
-
-// whateverElement.addEventListener("event type", () => {
-//   const input = document.getElementById("searchbar");
-
-//   input.addEventListener("input", (e) => {
-
-//     let value = e.target.value;
-
-//     if (value && value.trim().length > 0) {
-//       value = value.trim().toLowerCase()
-
-//       createCards(data.filter(data => {
-//         return data.includes(value)
-//       }))
-//     } else {
-
-//     }
-//   })
-// })
-
 // Prueba categorias
+
+// let categories = document.querySelectorAll("input[type=checkbox]")
+
+// categories.forEach(function (category) {
+
+let category = document.getElementById("inlineCheckbox1")
+  category.addEventListener("change", (event) => {
+    const filterObj = data.events.filter((event) => event.category == "Costume Party")
+  
+    console.log(filterObj);
+
+  })
 
 // const eventsCategories = document.querySelector("#categories");
 
@@ -79,3 +66,43 @@ function createCards(array) {
 // }
 
 // let costumePartyCategory = events.filter((event)=> data.event.category == "Costume Party")
+
+
+// Prueba search
+
+// function searching(data.events) {
+//   data.events.forEach(event) => {
+    
+//   });
+
+// }
+
+
+// let searchBar = document.getElementById("searchbar")
+
+// searchBar.addEventListener("keyup", () => {
+
+//   let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchBar.value.toLowerCase()))
+  
+//   createCards(filteredCards)
+// })
+// VER
+
+// whateverElement.addEventListener("event type", () => {
+//   const input = document.getElementById("searchbar");
+
+//   input.addEventListener("input", (e) => {
+
+//     let value = e.target.value;
+
+//     if (value && value.trim().length > 0) {
+//       value = value.trim().toLowerCase()
+
+//       createCards(data.filter(data => {
+//         return data.includes(value)
+//       }))
+//     } else {
+
+//     }
+//   })
+// })

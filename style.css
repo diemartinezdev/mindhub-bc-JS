@@ -103,13 +103,13 @@ footer p {
     margin-bottom: 7.5vh;
     width: 60%;
 }
-/* Section */
 
-section {
-    height: 66vh;
-}
 
 /* Detail */
+
+.detail-body {
+    height: 66vh;
+}
 
 .detail-container {
     margin: 0 auto;
