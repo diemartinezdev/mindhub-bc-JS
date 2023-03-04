@@ -24,12 +24,18 @@ function createCards(array) {
                     <div class="card-footer d-flex justify-content-between align-items-center"
                     style="height:52px">
                     <p>Price $${event.price}</p>
-                    <button type="button" onclick="location.href='./detail.html?id=${event.id}" class="btn btn-outline-info">Info</button>
+                    <button type="button" onclick="moreInfo('${event._id}')" class="btn btn-outline-info">Info</button>
                     </div>
                     </div>`;
   }
   return eventsCards;
 }
+
+function moreInfo(_id) {
+  window.location.href = `./detail.html?_id=${_id}`
+}
+
+eventsContainer.innerHTML = eventsCards
 
 // Prueba categorias
 
