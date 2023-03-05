@@ -10,21 +10,28 @@ const cardsContainer = document.getElementById("detail-body");
 let cardsData = "";
    cardsData  += `<div class="detail-container">
 <div class="detail-image">
-    <img src="${cardsInfo[0].image}" alt="${cardsInfo[0].name}" class="shadow rounded" style="max-width: 35vw;">
+    <img src="${cardsInfo[0].image}" alt="${cardsInfo[0].name}" class="shadow rounded" style="max-width: 32vw;">
 </div>
 <div class="detail-description">
     <h4><b>${cardsInfo[0].name}</b></h4>
-    <p class="card-text fst-italic fw-bold" style="color: #0dcaf0;">Date: ${cardsInfo[0].date}</p>
     <p>${cardsInfo[0].description}</p>
+    <p>Date: ${cardsInfo[0].date}</p>
     <p>Location: ${cardsInfo[0].place}</p>
     <p>Price: $${cardsInfo[0].price}</p>
-    <button type="button" onclick="backToIndex()" class="btn btn-outline-info">Back</button>
-
-</div>
-</div>`
+    
+    </div>
+    </div>
+    <div class="detail-buttons">
+    <button type="button" onclick="backToIndex()" class="btn btn-info">Back</button>
+    <button type="button" onclick="contactUs()" class="btn btn-warning">Contact us!</button>
+    </div>`
 
 cardsContainer.innerHTML = cardsData
 
 function backToIndex() {
     window.location.href = `./index.html`
+}
+
+function contactUs() {
+    window.location.href = `./contact.html`
 }

@@ -57,6 +57,8 @@ div label {
     padding-top: 15px;
 }
 
+/* Footer */
+
 footer {
     height: 6.3vh;
     background-color: #fffcec;
@@ -107,8 +109,8 @@ footer p {
 
 /* Detail */
 
-.detail-body {
-    height: 66vh;
+#detail-section {
+    height: 65.5vh;
 }
 
 .detail-container {
@@ -124,18 +126,38 @@ footer p {
 }
 
 .detail-image {
+    background-color: black;
     margin: 2vh;
-    border-style: groove;
-    border-radius: 20px;
+    border-style: solid;
+    border-radius: 8px;
 }
 
 .detail-description {
-    margin: 0.5vh;
-    width: 29vw;
-    height: 35vh;
+    margin: 2vh;
+    width: 32vw;
+    height: 42vh;
     border-style: groove;
-    text-align: center;
     border-radius: 20px;
+    padding: 1vw;
+}
+
+.detail-description>p {
+    font-size: 1vw;
+}
+
+.detail-description>h4 {
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 2vh;
+}
+
+.detail-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 15vw;
+    margin-top: 1vh;
+    ;
+    gap: 15vw
 }
 
 /* Ghost heading */
