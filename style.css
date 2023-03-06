@@ -110,35 +110,35 @@ footer p {
 /* Detail */
 
 #detail-section {
-    height: 65.5vh;
+    min-height: 76vh;
 }
 
 .detail-container {
-    margin: 0 auto;
+    background: rgb(244, 183, 212);
+    background: radial-gradient(circle, rgba(244, 183, 212, 1) 78%, rgba(219, 24, 116, 1) 100%);
+    margin: 10vh auto 14vh auto;
+
     width: 70%;
-    margin-top: 20vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-style: groove;
-    border-radius: 20px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 16px;
 
 }
 
 .detail-image {
-    background-color: black;
-    margin: 2vh;
-    border-style: solid;
     border-radius: 8px;
+    box-shadow: 5px 5px 16px;
 }
 
 .detail-description {
     margin: 2vh;
     width: 32vw;
-    height: 42vh;
-    border-style: groove;
-    border-radius: 20px;
+    height: 100%;
+    border-radius: 8px;
     padding: 1vw;
+    background: white;
 }
 
 .detail-description>p {
@@ -154,9 +154,9 @@ footer p {
 .detail-buttons {
     display: flex;
     flex-direction: row-reverse;
-    margin-right: 15vw;
-    margin-top: 1vh;
-    ;
+    margin: -12vh 8vw 8vh 6vw;
+    /* margin-right: 8vw;
+    margin-top: -vh; */
     gap: 15vw
 }
 
