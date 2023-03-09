@@ -57,19 +57,24 @@ div label {
     padding-top: 15px;
 }
 
+/* Footer */
+
 footer {
     height: 6.3vh;
-    background-color: #fffcec;
+    background-color: #eeeeee;
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid black;
 }
 
-footer p {
+footer > p {
     font-weight: bold;
-    margin-top: 2vh;
     margin-right: 10vw;
+    text-decoration: none;
+}
 
+footer > p > a {
+    text-decoration: none;
+    color: black;
 }
 
 .social {
@@ -104,30 +109,106 @@ footer p {
     width: 60%;
 }
 
+
 /* Detail */
 
+#detail-section {
+    min-height: 76vh;
+}
+
+#event-image {
+    max-width: 750px;
+    box-shadow: 5px 5px 16px;
+}
+
 .detail-container {
-    margin: 0 auto;
+    margin: 10vh auto 14vh auto;
     width: 70%;
-    margin-top: 20vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    border-style: groove;
-
+    justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 5px 5px 16px;
 }
 
 .detail-image {
-    margin: 2vh;
-    border-style: groove;
+    border-radius: 8px;
+    box-shadow: 5px 5px 16px;
+    padding: 1vh;
+    background-color: #eeeeee;
 }
 
 .detail-description {
-    margin: 2vh;
-    width: 29vw;
-    height: 19vh;
-    border-style: groove;
+    margin: 1.3vh;
+    width: 32vw;
+    height: 100%;
+    border-radius: 8px;
+    padding: 1vw;
+}
+
+.detail-description>p {
+    font-size: 1vw;
+}
+
+.detail-description>h4 {
     text-align: center;
+    font-style: italic;
+    font-size: 2.5vw;
+    margin-top: 2vh;
+}
+
+.detail-container2 {
+    margin: 10vh auto 14vh auto;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 5px 5px 16px;
+}
+
+.detail-container2>.card-body>p {
+    font-size: 1.5vw;
+}
+
+.detail-container2>.card-body>h4 {
+    text-align: center;
+    font-style: italic;
+    font-size: 2.5vw;
+    margin-top: 2vh;
+}
+
+
+.detail-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: -12vh 8vw 8vh 6vw;
+    gap: 15vw;
+}
+
+@media only screen and (max-width: 1400px) {
+    .detail-container {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .detail-container2 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .detail-container2>.card-body>p {
+        font-size: 2.5vw;
+    }
+    
+    .detail-container2>.card-body>h4 {
+        text-align: center;
+        font-style: italic;
+        font-size: 4vw;
+    }
+    
 }
 
 /* Ghost heading */
