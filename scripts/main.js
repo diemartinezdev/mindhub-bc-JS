@@ -1,20 +1,14 @@
 // Cards
 
+let eventsContainer = document.getElementById("cards");
 
-const eventsContainer = document.querySelector("#cards");
+eventsContainer.innerHTML = createCards(data.events);
 
-const amazingCards = createCards(data.events);
-
-eventsContainer.innerHTML = amazingCards;
-
-// Equivalente a decir:
-// document.querySelector('#cards').innerHTML = createCards(data.events)
-
-function createCards(array) {
+function createCards(arrData) {
   let eventsCards = "";
-
-  for (const event of array) {
-    eventsCards += `<div class="card h-100 shadow" style="width: 22rem;">
+  arrData.map(
+    (event) =>
+      (eventsCards += `<div class="card h-100 shadow" style="width: 22rem;">
         <img src="${event.image}" class="card-img-top shadow" alt="${event.name}">
                 <div class="card-body">
                     <h5 class="card-title">${event.name}</h5>
@@ -26,89 +20,74 @@ function createCards(array) {
                     <p>Price $${event.price}</p>
                     <button type="button" onclick="moreInfo('${event._id}')" class="btn btn-outline-info">Info</button>
                     </div>
-                    </div>`;
-  }
+                    </div>`)
+  );
   return eventsCards;
 }
 
 function moreInfo(_id) {
-  window.location.href = `./detail.html?_id=${_id}`
+  window.location.href = `./detail.html?_id=${_id}`;
 }
 
-eventsContainer.innerHTML = eventsCards
+// Categories
 
-// Prueba categorias
+let eventsCategories = document.getElementById("categories");
+eventsCategories.innerHTML = showCategories(getCategory(data.events));
 
-// let categories = document.querySelectorAll("input[type=checkbox]")
+function getCategory(arrData) {
+  let allCategories = [];
+  arrData.forEach((element) => {
+    if (allCategories.indexOf(element.category) < 0) {
+      allCategories.push(element.category);
+    }
+  });
+  return allCategories.sort();
+}
 
-// categories.forEach(function (category) {
+function showCategories(arrData) {
+  let categories = "";
+  arrData.map(
+    (category) =>
+      (categories += `<div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="checkbox" value="${category}">
+      <label class="form-check-label" for="checkbox">${category}</label></div>`)
+  );
+  return categories;
+}
 
-let category = document.getElementById("inlineCheckbox1")
-  category.addEventListener("change", (event) => {
-    const filterObj = data.events.filter((event) => event.category == "Costume Party")
-  
-    console.log(filterObj);
+function categoryCheckFilter(arrData) {
+  let category = [];
+  for (let i = 0; i < arrData.length; i++) {
+    if (arrData[i].checked) {
+      category.push(arrData[i].value);
+    }
+  }
+  return category;
+}
 
-  })
+let buttonEvents = document.getElementById("categories");
 
-// const eventsCategories = document.querySelector("#categories");
+let checkboxEvents = document.querySelectorAll("#checkbox");
 
-// const amazingCategories = showCategories(data.events);
+buttonEvents.addEventListener("change", (e) => {
+  eventsContainer.innerHTML = "";
 
-// eventsCategories.innerHTML = amazingCategories;
+  let category = categoryCheckFilter(checkboxEvents);
+  let events = data.events.filter((event) => event.category == category);
+  eventsContainer.innerHTML = createCards(events);
+});
 
-// function showCategories(array) {
+// Search bar
 
-// let eventCategory = "";
+let searchEvent = document.getElementById("searchbar");
 
-// for (const event of array) {
+searchEvent.addEventListener("change", (e) => {
+  eventsContainer.innerHTML = "";
 
-// eventCategory += `<div class="form-check form-check-inline">
-// <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-// <label class="form-check-label" for="inlineCheckbox1">${event.category}</label>
-// </div>`
-// }
-// return eventCategory;
-// }
-
-// let costumePartyCategory = events.filter((event)=> data.event.category == "Costume Party")
-
-
-// Prueba search
-
-// function searching(data.events) {
-//   data.events.forEach(event) => {
-    
-//   });
-
-// }
-
-
-// let searchBar = document.getElementById("searchbar")
-
-// searchBar.addEventListener("keyup", () => {
-
-//   let filteredCards = events.filter((event) => event.name.toLowerCase().includes(searchBar.value.toLowerCase()))
-  
-//   createCards(filteredCards)
-// })
-// VER
-
-// whateverElement.addEventListener("event type", () => {
-//   const input = document.getElementById("searchbar");
-
-//   input.addEventListener("input", (e) => {
-
-//     let value = e.target.value;
-
-//     if (value && value.trim().length > 0) {
-//       value = value.trim().toLowerCase()
-
-//       createCards(data.filter(data => {
-//         return data.includes(value)
-//       }))
-//     } else {
-
-//     }
-//   })
-// })
+  let events = data.events.filter(
+    (event) =>
+      event.name.toLowerCase().includes(searchEvent.value.toLowerCase()) ||
+      event.description.toLowerCase().includes(searchEvent.value.toLowerCase())
+  );
+  eventsContainer.innerHTML = createCards(events);
+});
