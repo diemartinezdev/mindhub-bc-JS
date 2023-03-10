@@ -5,10 +5,14 @@ let eventsContainer = document.getElementById("cards");
 eventsContainer.innerHTML = createCards(data.events);
 
 function createCards(arrData) {
-  let eventsCards = "";
-  arrData.map(
-    (event) =>
-      (eventsCards += `<div class="card h-100 shadow" style="width: 22rem;">
+  if (arrData.length == 0) {
+    eventsContainer.innerHTML = `<p class='display-3'>No results found, please modify filters</p>`
+    return false
+  }
+  eventsCards = '';
+  arrData.forEach(
+    (event) => {
+      eventsCards += `<div class="card h-100 shadow" style="width: 22rem;">
         <img src="${event.image}" class="card-img-top shadow" alt="${event.name}">
                 <div class="card-body">
                     <h5 class="card-title">${event.name}</h5>
@@ -20,8 +24,8 @@ function createCards(arrData) {
                     <p>Price $${event.price}</p>
                     <button type="button" onclick="moreInfo('${event._id}')" class="btn btn-outline-info">Info</button>
                     </div>
-                    </div>`)
-  );
+                    </div>`
+    })
   return eventsCards;
 }
 
@@ -79,15 +83,23 @@ buttonEvents.addEventListener("change", (e) => {
 
 // Search bar
 
-let searchEvent = document.getElementById("searchbar");
+const searchEvent = document.getElementById("searchbar");
 
-searchEvent.addEventListener("change", (e) => {
-  eventsContainer.innerHTML = "";
+searchEvent.addEventListener('input', () => {
+  // eventsContainer.innerHTML = "";
 
-  let events = data.events.filter(
-    (event) =>
-      event.name.toLowerCase().includes(searchEvent.value.toLowerCase()) ||
-      event.description.toLowerCase().includes(searchEvent.value.toLowerCase())
-  );
-  eventsContainer.innerHTML = createCards(events);
+  // let events = data.events.filter(
+  //   (event) =>
+  //     event.name.toLowerCase().includes(searchEvent.value.toLowerCase()) ||
+  //     event.description.toLowerCase().includes(searchEvent.value.toLowerCase())
+  // );
+  // eventsContainer.innerHTML = createCards(events);
+
+  let filteredArray = searchInput(array, searchEvent)
+  eventsContainer.innerHTML = createCards(filteredArray) 
 });
+
+function searchInput(array, text) {
+  return array.filter(event => event.name.toLowerCase().includes(text.value.toLowerCase()) ||
+  event.description.toLowerCase().includes(text.value.toLowerCase()))
+}

@@ -40,12 +40,12 @@ cardsData += `<div class="detail-container">
         <button type="button" onclick="contactUs()" class="btn btn-warning">Contact us!</button>
     </div>`;
 
-    function backToIndex() {
-        window.location.href = `./index.html`;
-    }
-    
-    function contactUs() {
-        window.location.href = `./contact.html`;
+function backToIndex() {
+  window.location.href = `./index.html`;
 }
-    
+
+function contactUs() {
+  window.location.href = `./contact.html`;
+}
+
 cardsContainer.innerHTML = cardsData;
