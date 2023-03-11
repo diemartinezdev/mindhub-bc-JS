@@ -1,14 +1,38 @@
-let queryString = document.location.search;
+function getData() {
+  fetch("https://mindhub-xj03.onrender.com/api/amazing")
+    .then((response) => response.json())
+    .then((apiData) => {
+      console.log(apiData);
+      events = apiData.events;
+      console.log(events);
+      detailCards(events, cardsContainer);
+    })
+    .catch((error) => console.log(error.message));
+}
 
-let params = new URLSearchParams(queryString);
-
-let _id = params.get("_id");
-
-let cardsInfo = data.events.filter((event) => event._id == _id);
+getData();
 
 const cardsContainer = document.getElementById("detail-body");
-let cardsData = "";
-cardsData += `<div class="detail-container">
+
+let events = [];
+
+let _id = new URLSearchParams(document.location.search).get("_id")
+
+// U otra forma de expresarlo: 
+
+// let queryString = document.location.search;
+
+// let params = new URLSearchParams(queryString);
+
+// let _id = params.get("_id");
+
+
+function detailCards(array, location) {
+    
+    let cardsInfo = array.filter((event) => event._id == _id);
+
+    let cardsData = "";
+    cardsData += `<div class="detail-container">
 <div class="detail-image">
     <img src="${cardsInfo[0].image}" alt="${cardsInfo[0].name}" class="shadow rounded img-fluid" id="event-image">
 </div>
@@ -39,6 +63,8 @@ cardsData += `<div class="detail-container">
         <button type="button" onclick="backToIndex()" class="btn btn-info">Back</button>
         <button type="button" onclick="contactUs()" class="btn btn-warning">Contact us!</button>
     </div>`;
+    location.innerHTML = cardsData;
+}
 
 function backToIndex() {
   window.location.href = `./index.html`;
@@ -47,5 +73,3 @@ function backToIndex() {
 function contactUs() {
   window.location.href = `./contact.html`;
 }
-
-cardsContainer.innerHTML = cardsData;
