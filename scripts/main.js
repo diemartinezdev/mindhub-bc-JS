@@ -34,21 +34,22 @@ function moreInfo(_id) {
 
 // Categories
 
-let eventsCategories = document.getElementById("categories");
-eventsCategories.innerHTML = showCategories(getCategory(data.events));
 
 function getCategory(arrData) {
   let allCategories = [];
   arrData.forEach((element) => {
+    // si no existe en el array, agrega el elemento
     if (allCategories.indexOf(element.category) < 0) {
       allCategories.push(element.category);
     }
   });
+  //ordena
   return allCategories.sort();
 }
 
 function showCategories(arrData) {
   let categories = "";
+
   arrData.map(
     (category) =>
       (categories += `<div class="form-check form-check-inline">
@@ -67,6 +68,10 @@ function categoryCheckFilter(arrData) {
   }
   return category;
 }
+
+
+let eventsCategories = document.getElementById("categories");
+eventsCategories.innerHTML = showCategories(getCategory(data.events));
 
 let buttonEvents = document.getElementById("categories");
 
