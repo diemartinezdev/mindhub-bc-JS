@@ -93,22 +93,19 @@ function checkCategory() {
   let checkboxEvent = document.querySelectorAll(".form-check-input");
 
   let checked = [];
-
-  checkboxEvent.forEach((checkbox) => {
+  
+    checkboxEvent.forEach((checkbox) => {
     checkbox.addEventListener("click", () => {
-      // console.log(checkbox.checked);
-
       if (checkbox.checked === true) {
         checked.push(checkbox.value);
         checkedCategoryCards(checked);
-        // } else if (checked = []) {
-        //   console.log(events);
-        //   checkedCategoryCards(events);
+        } else if (checked = []) {
+          createCards(events);
       } else {
         checked = checked.filter((category) => category !== checkbox.value);
         checkedCategoryCards(checked);
       }
-      console.log(checked);
+      // console.log(checked);
     });
   });
 }
