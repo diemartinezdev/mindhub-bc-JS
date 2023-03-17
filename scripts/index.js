@@ -77,12 +77,16 @@ function getCategory(array) {
 const eventsSearch = document.getElementById("searchbar");
 eventsSearch.addEventListener("input", filterAll);
 
-
 function filterAll() {
   const checkboxEvent = document.querySelectorAll("input:checked");
 
-  let categoryString = Array.from(checkboxEvent).map(categ => categ.value);
+  let categoryString = Array.from(checkboxEvent).map((categ) => categ.value);
 
-  const arrayFiltered = events.filter((event) => categoryString.length == 0 || categoryString.includes(event.category) && event.name.toLowerCase().includes(eventsSearch.value.toLowerCase()))
+  const arrayFiltered = events.filter(
+    (event) =>
+      (categoryString.length == 0 ||
+        categoryString.includes(event.category)) &&
+      event.name.toLowerCase().includes(eventsSearch.value.toLowerCase())
+  );
   createCards(arrayFiltered);
-};
+}
