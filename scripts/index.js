@@ -7,7 +7,7 @@ function getData() {
       events = apiData.events;
       createCards(events);
       getCategory(events);
-      checkCategory();
+      filterAll();
       console.log(events);
     })
     .catch((error) => console.log(error.message));
@@ -45,23 +45,6 @@ function createCards(array) {
   }
 }
 
-// Search Bar
-
-const eventsSearch = document.getElementById("searchbar");
-
-let events = [];
-
-function searchInput(array, text) {
-  return array.filter((event) =>
-    event.name.toLowerCase().includes(text.toLowerCase())
-  );
-}
-
-eventsSearch.addEventListener("input", () => {
-  let arrayFiltered = searchInput(events, eventsSearch.value);
-  createCards(arrayFiltered, eventsContainer);
-});
-
 // Categories
 
 const eventsCategories = document.getElementById("categories");
@@ -83,44 +66,23 @@ function getCategory(array) {
   ordererCategories.forEach(
     (category) =>
       (categoryList += `<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="checkbox" value="${category}">
-  <label class="form-check-label" for="checkbox">${category}</label></div>`)
+  <input class="form-check-input" type="checkbox" id="${category}" value="${category}" onclick="filterAll()">
+  <label class="form-check-label" for="${category}">${category}</label></div>`)
   );
   eventsCategories.innerHTML = categoryList;
 }
 
-function checkCategory() {
-  let checkboxEvent = document.querySelectorAll(".form-check-input");
+// Search bar
 
-  let checked = [];
-  
-    checkboxEvent.forEach((checkbox) => {
-    checkbox.addEventListener("click", () => {
-      if (checkbox.checked === true) {
-        checked.push(checkbox.value);
-        checkedCategoryCards(checked);
-        } else if (checked = []) {
-          createCards(events);
-      } else {
-        checked = checked.filter((category) => category !== checkbox.value);
-        checkedCategoryCards(checked);
-      }
-      // console.log(checked);
-    });
-  });
-}
-checkCategory();
+const eventsSearch = document.getElementById("searchbar");
+eventsSearch.addEventListener("input", filterAll);
 
-let checkEventCards = [];
 
-function checkedCategoryCards(checked) {
-  let checkEventCards = [];
-  checked.forEach((category) => {
-    const checkedEventList = events.filter(
-      (event) => event.category == category
-    );
-    checkedEventList.forEach((event) => checkEventCards.push(event));
-    console.log(checkEventCards);
-  });
-  createCards(checkEventCards, eventsContainer);
-}
+function filterAll() {
+  const checkboxEvent = document.querySelectorAll("input:checked");
+
+  let categoryString = Array.from(checkboxEvent).map(categ => categ.value);
+
+  const arrayFiltered = events.filter((event) => categoryString.length == 0 || categoryString.includes(event.category) && event.name.toLowerCase().includes(eventsSearch.value.toLowerCase()))
+  createCards(arrayFiltered);
+};
