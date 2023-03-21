@@ -107,9 +107,13 @@ footer > p > a {
     margin: 0 auto;
     margin-top: 5vh;
     margin-bottom: 7.5vh;
-    width: 60%;
+    width: 50%;
 }
 
+td {
+    font-size: 90%;
+    text-align: center;
+}
 
 /* Detail */
 
